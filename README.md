@@ -49,4 +49,4 @@ module.exports.v2 = function(j){
 };
 ```
 ## Updates
-I don't intend to update this ever. I MIGHT update it if you find a security issue or have a good feature but I'd rather not worry about it and its supposed to be a simple router anyway.
+I don't intend to update this ever.

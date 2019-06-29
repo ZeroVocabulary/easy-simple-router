@@ -41,7 +41,6 @@ function handleRoute(router, path, myFunc){
   }
 };
 
-
 const rec = (j) => {
   let router = express.Router();
   for (let i in j) {

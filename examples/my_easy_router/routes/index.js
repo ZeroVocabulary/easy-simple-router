@@ -23,11 +23,12 @@ routes = {
     "/math": {
       "GET /": "This does math.",
       "GET/POST /multiply-together": multiplyNumbers, // if you give a function it will be called
-      "GET/POST /add-together": {target:require("./../controllers/addNumbers"), versioned:"true"}, // this is for versioning
-      "GET/POST /divide": {target:require("./../controllers/myController").divide, versioned:"true"},
+      "GET/POST /add-together": {target:require("./../controllers/addNumbers"), versioned:true}, // this is for versioning
+      "GET/POST /divide": {target:require("./../controllers/myController").divide, versioned:true},
     },
   },
-  // if your function takes 0 or 1 arguments it will be given json and what it returns will be sent as json
+  // if your function takes 0 or 1 arguments it will be given json (params, body, query values)
+  // and what it returns will be sent as json
   "ALL *": () => ({ errors: [{ msg: "Invalid Route" }] })
 };
 router.use( "/", require("easy-simple-router")(routes, verbose=true) );

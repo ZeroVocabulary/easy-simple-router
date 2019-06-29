@@ -1,0 +1,28 @@
+{
+  "name": "easy-simple-router",
+  "version": "1.0.0",
+  "description": "Easily make Express.js router setups",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZeroVocabulary/easy-simple-router.git"
+  },
+  "keywords": [
+    "[\"easy\"",
+    "\"simple\"",
+    "\"router\"",
+    "\"express\"]"
+  ],
+  "author": "zerovocabulary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZeroVocabulary/easy-simple-router/issues"
+  },
+  "homepage": "https://github.com/ZeroVocabulary/easy-simple-router#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}

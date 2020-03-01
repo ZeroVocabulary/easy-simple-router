@@ -28,7 +28,7 @@ The image above mostly explains it.
 * If given a string, it will send that string (res.send).
 * If given a function, it will run it with arguments. If the function takes 2 or more arguments it will be sent req, res, next as normal. If the function takes 0 or 1 arguments then it is a "json function" and it will be given json with the params, body, and query parameters thrown in, and what it returns will be sent as json (res.json). See the examples if you want to know how that works.
 * If given an object it will run the target function with whatever options are given. There is only one option at the moment ("versioned").
-  * versioned: If versioned, the target should instead point to an object with functions named v1, v2, v3, v1_2_3, v1blablabla, etc. Then the user will access endpoint/version to use the endpoint. For example: account/create-account/v2. This feature was added because I found it useful for microservices. I make a file per function, and export each version, using the json function feature so that it can be called from within the project
+  * versioned: If versioned, the target should instead point to an object with functions named v1, v2, v3, v1_2_3, v1blablabla, etc. Then the user will access endpoint/version to use the endpoint. For example: account/create-account/v2. I added this feature because I found it useful for microservices. I make a file per function, and export each version, using the json function feature so that it can be called from within the project. I don't really recommend using this feature for any big project because it gets complex when you have a lot of people.
 
 ```js
 module.exports.v1 = function(j){

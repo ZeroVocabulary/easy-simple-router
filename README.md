@@ -20,7 +20,8 @@ router.use( "/", require("easy-simple-router")(routes) );
 npm install easy-simple-router
 ```
 ### Usage
-The image above mostly explains it. Extra info
+The image above mostly explains it. There is an example project on GitHub.
+Extra info:
 * Put the http method and url as the key (ex. "GET /") and the function you want to call as the value.
 * You can put any number of http methods by seperating them with "/" (ex. "GET/POST /").
 * If you don't put an http method (ex. "/") you can nest.

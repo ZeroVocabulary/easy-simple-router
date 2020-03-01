@@ -1,36 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
-// This function takes only 1 arg,
-// ...so easy-simple-router will give it json with all req.params, req.query, req.body values included
-// It will then return a json object, which easy-simple-router will send out with res.json()
-// This is nice because this way the function can be easily used from inside the project.
-// If this function took 2 or 3 args it would get the normal (req, res, next) args instead
-const multiplyNumbers = function(j){
-  try{
-    let x = 1;
-    for (let key in j)
-      x *= j[key];
-    return {"data":{"answer":x}};
-  }catch(err){
-    return {"error":err};
-  }
+const multiplyNumbers = function(req, res){
+  product = req.body.num1 * req.body.num2;
+  res.send(product.toString());
 };
 
+const addNumbers = (req, res) => {
+  sum = req.body.num1 + req.body.num2;
+  res.send(sum.toString());
+};
+
+sendMessage = (msg) => (req, res) => res.send(msg);
 routes = {
   "/": {
-    "GET /": "This is my api.", // if you give a string it will be sent
+    "GET /": sendMessage("This is my api"),
     "/math": {
-      "GET /": "This does math.",
-      "GET/POST /multiply-together": multiplyNumbers, // if you give a function it will be called
-      "GET/POST /add-together": {target:require("./../controllers/addNumbers"), versioned:true}, // this is for versioning
-      "GET/POST /divide": {target:require("./../controllers/myController").divide, versioned:true},
+      "GET /": sendMessage("This does math"),
+      "POST /multiply-numbers": multiplyNumbers,
+      "POST /add-numbers": addNumbers,
     },
   },
-  // if your function takes 0 or 1 arguments it will be given json (params, body, query values)
-  // and what it returns will be sent as json
-  "ALL *": () => ({ errors: [{ msg: "Invalid Route" }] })
+  "ALL *": sendMessage("Invalid Route")
 };
-router.use( "/", require("easy-simple-router")(routes, verbose=true) );
+router.use( "/", require("../../index")(routes) );
 
 module.exports = router;

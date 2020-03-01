@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "easy-simple-router": "^1.0.0",
+    "easy-simple-router": "^2.0.0",
     "express": "^4.17.1"
   }
 }

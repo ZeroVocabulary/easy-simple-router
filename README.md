@@ -12,7 +12,7 @@ routes = {
   },
   "ALL *": sendMessage("Invalid Route")
 };
-router.use( "/", require("../../index")(routes) );
+router.use( "/", require("easy-simple-router")(routes) );
 ```
 ## Getting Started
 ### Install
